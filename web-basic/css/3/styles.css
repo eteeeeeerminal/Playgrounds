@@ -1,0 +1,9 @@
+span {
+  border: 1px solid black;
+  background-color: lime;
+}
+p {
+  font-weight: bold;
+  colour: blue; /* colorプロパティのスペルが正しくありません */
+  font-size: 200%;
+}
