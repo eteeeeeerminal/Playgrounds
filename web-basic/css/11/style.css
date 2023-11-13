@@ -1,0 +1,130 @@
+/* General setup */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  min-width: 1000px;
+  max-width: 1400px;
+}
+
+/* Layout */
+
+section {
+  float: left;
+  width: 50%;
+}
+
+aside {
+  float: left;
+  width: 30%;
+}
+
+nav {
+  float: left;
+  width: 20%;
+}
+
+footer {
+  clear: both;
+}
+
+header, section, aside, nav, footer {
+  padding: 20px;
+}
+
+/* header and footer */
+
+header, footer {
+  border-top: 5px solid #a66;
+  border-bottom: 5px solid #a66;
+}
+
+/* WRITE YOUR CODE BELOW HERE */
+* {
+  font-size: 10px;
+  font-family: 'Merriweather', serif;
+}
+
+h1, h2 {
+  font-family: 'Josefin Slab', serif;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+
+h1 {
+  font-size: 3.2rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+p, li {
+  line-height: 2;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.2rem;
+}
+
+h2 + p {
+  text-indent: 2rem;
+}
+
+a {
+  color: #a66;
+  text-decoration: underline;
+  outline: none;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+a:active {
+  color: green;
+}
+
+a[href*="http"] {
+  background: url("external-link-52.png") no-repeat 100% 0;
+  background-size: 1rem 1rem;
+  padding-right: 1.2rem;
+}
+
+ul {
+  list-style: "■ ";
+}
+
+ol {
+  list-style: lower-alpha;
+}
+
+nav {
+  padding: 0;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 1rem 2rem;
+}
+
+nav li {
+  border: solid 1px #a66;
+}
+
+nav li:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  font-family: 'Josefin Slab', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  display: block;
+  padding: 1rem 0;
+}
