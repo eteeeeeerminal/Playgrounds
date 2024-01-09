@@ -1,3 +1,5 @@
+import time
+
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
 )
@@ -6,10 +8,14 @@ from werkzeug.exceptions import abort
 from flaskr.auth import login_required
 from flaskr.db import get_db
 
+from .cache import cache, delete_cache
+
 bp = Blueprint('blog', __name__)
 
 @bp.route('/')
+@cache.cached()
 def index():
+    time.sleep(3)
     db = get_db()
     posts = db.execute(
         'SELECT p.id, title, body, created, author_id, username'
@@ -39,6 +45,7 @@ def create():
                 (title, body, g.user['id'])
             )
             db.commit()
+            delete_cache()
             return redirect(url_for('blog.index'))
 
     return render_template('blog/create.html')
@@ -82,6 +89,7 @@ def update(id):
                 (title, body, id)
             )
             db.commit()
+            delete_cache()
             return redirect(url_for('blog.index'))
 
     return render_template('blog/update.html', post=post)
@@ -93,4 +101,5 @@ def delete(id):
     db = get_db()
     db.execute('DELETE FROM post WHERE id = ?', (id,))
     db.commit()
+    delete_cache()
     return redirect(url_for('blog.index'))

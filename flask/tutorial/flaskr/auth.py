@@ -6,6 +6,7 @@ from flask import (
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from flaskr.db import get_db
+from flaskr.cache import delete_cache
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -57,6 +58,7 @@ def login():
         if error is None:
             session.clear()
             session['user_id'] = user['id']
+            delete_cache()
             return redirect(url_for('index'))
 
         flash(error)
@@ -77,6 +79,7 @@ def load_logged_in_user():
 @bp.route('/logout')
 def logout():
     session.clear()
+    delete_cache()
     return redirect(url_for('index'))
 
 def login_required(view):
