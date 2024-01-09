@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Review{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="url">URL</label>
+    <input name="url" id="url" value="{{ request.form['url'] }}" required>
+    <fieldset>
+      <legend>Score</legend>
+      <input type="radio" id="score1" name="score" value="1"/>
+      <label for="score1">1</label>
+      <input type="radio" id="score2" name="score" value="2"/>
+      <label for="score2">2</label>
+      <input type="radio" id="score3" name="score" value="3"/>
+      <label for="score3">3</label>
+    </fieldset>
+    <label for="comment">Comment</label>
+    <textarea name="comment" id="comment">{{ request.form['comment'] }}</textarea>
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}
