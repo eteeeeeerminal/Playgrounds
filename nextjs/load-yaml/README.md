@@ -1,6 +1,6 @@
 # Next.js で yaml ファイルを読み込む方法
 zenn に記事を出してます
-
+https://zenn.dev/etrnl_tamayura/articles/nextjs-load-yaml
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
